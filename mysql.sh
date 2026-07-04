@@ -19,11 +19,11 @@ fi
 }
 ############################################
 
-echo "Script started executing at:: $TIMESTAMP" &>>LOG_FILE_NAME
+echo "Script started executing at:: $TIMESTAMP" &>>LOG_FILE_NAME &>>LOG_FILE_NAME
 
 if [ $USERID -ne 0 ]
     then
-        echo "ERROR:: You must have SUDO Access to perform this Action"
+        echo "ERROR:: You must have SUDO Access to perform this Action" 
         exit 1
     fi
 
