@@ -27,16 +27,16 @@ if [ $USERID -ne 0 ]
         exit 1
     fi
 
-dnf install mysql-server -y
-VALIDATE_FUNCTION $? "Installing MYSQL-server" 
+# dnf install mysql-server -y
+# VALIDATE_FUNCTION $? "Installing MYSQL-server" 
 
-systemctl enable mysqld
-VALIDATE_FUNCTION $? "Enabling MYSQL-server"
+# systemctl enable mysqld
+# VALIDATE_FUNCTION $? "Enabling MYSQL-server"
 
-systemctl start mysqld
-VALIDATE_FUNCTION $? "Starting MYSQL-server"
+# systemctl start mysqld
+# VALIDATE_FUNCTION $? "Starting MYSQL-server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
-VALIDATE_FUNCTION $? "Setting root password"
+# mysql_secure_installation --set-root-pass ExpenseApp@1
+# VALIDATE_FUNCTION $? "Setting root password"
 
   
