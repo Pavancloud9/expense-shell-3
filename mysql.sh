@@ -36,5 +36,21 @@ VALIDATE_FUNCTION $? "Enabling MYSQL-server"
 systemctl start mysqld
 VALIDATE_FUNCTION $? "Starting MYSQL-server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
-VALIDATE_FUNCTION $? "Setting root password"
+mysql -h mysql.pavancloud5.online -u root -pExpenseApp@1 -e 'show databases;'
+if [ $? -ne 0 ]
+then
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+    if [ $? -ne 0 ]
+    then
+        echo "Setting root password...FAILURE"
+        exit 1
+    else
+        echo "Setting root password...SUCCESS"
+    fi
+else
+    echo "Mysql root pw set up already done...SKIPPING"
+fi
+    
+    
+    
+    
