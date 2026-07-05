@@ -38,5 +38,3 @@ if [ $USERID -ne 0 ]
 
 # mysql_secure_installation --set-root-pass ExpenseApp@1
 # VALIDATE_FUNCTION $? "Setting root password"
-
-  
