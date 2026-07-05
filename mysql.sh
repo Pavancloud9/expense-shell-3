@@ -36,7 +36,7 @@ VALIDATE_FUNCTION $? "Enabling MYSQL-server"
 systemctl start mysqld
 VALIDATE_FUNCTION $? "Starting MYSQL-server"
 
-mysql -h mysql.pavancloud5.online -u root -pExpenseApp@1 -e 'show databases;'
+mysql -h mysql.pavancloud5.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ExpenseApp@1
