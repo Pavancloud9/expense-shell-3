@@ -53,15 +53,15 @@ VALIDATE_FUNCTION $? "downloading application code"
 
 cd /app 
 
-unzip /tmp/backend.zip    
+unzip /tmp/backend.zip &>>$LOG_FILE_NAME   
 VALIDATE_FUNCTION $? "unzipping backend application code"
 
-npm install &>>LOG_FILE_NAME
+npm install &>>$LOG_FILE_NAME
 VALIDATE_FUNCTION $? "Installing dependencies"
 
 cp /home/ec2-user/expense-shell-3/backend.service /etc/systemd/system/backend.service
 
-dnf install mysql -y &>>LOG_FILE_NAME
+dnf install mysql -y &>>$LOG_FILE_NAME
 VALIDATE_FUNCTION $? "Installing mysql client"
 
 mysql -h mysql.pavancloud5.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
