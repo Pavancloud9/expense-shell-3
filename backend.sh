@@ -36,8 +36,8 @@ VALIDATE_FUNCTION $? "Enabling nodejs"
 dnf install nodejs -y &>>$LOG_FILE_NAME
 VALIDATE_FUNCTION $? "Installing nodejs"
 
-useradd expense
-VALIDATE_FUNCTION $? "Creating expense user"
+# useradd expense
+# VALIDATE_FUNCTION $? "Creating expense user"
 
 mkdir /app
 VALIDATE_FUNCTION $? "Creating app directory"
