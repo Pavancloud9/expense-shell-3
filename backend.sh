@@ -43,6 +43,7 @@ then
     VALIDATE_FUNCTION $? "creating expense user"
 else
     echo "Expense user already exists...SKIPPING"
+fi
 
 useradd expense
 VALIDATE_FUNCTION $? "Creating expense user"
