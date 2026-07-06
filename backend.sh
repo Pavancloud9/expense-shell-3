@@ -53,7 +53,7 @@ VALIDATE_FUNCTION $? "downloading application code"
 
 cd /app 
 
-unzip /tmp/backend.zip  
+unzip /tmp/backend.zip &>>LOG_FILE_NAME   
 VALIDATE_FUNCTION $? "unzipping backend application code"
 
 npm install &>>LOG_FILE_NAME
