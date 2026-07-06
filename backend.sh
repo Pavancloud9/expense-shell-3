@@ -42,15 +42,15 @@ VALIDATE_FUNCTION $? "Installing nodejs"
 # mkdir /app
 # VALIDATE_FUNCTION $? "Creating app directory"
 
-curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_NAME
 VALIDATE_FUNCTION $? "downloading application code"
 
-cd /app
+cd /app 
 
-unzip /tmp/backend.zip
+unzip /tmp/backend.zip  
 VALIDATE_FUNCTION $? "unzipping backend application code"
 
-npm install
+npm install &>>LOG_FILE_NAME
 VALIDATE_FUNCTION $? "Installing dependencies"
 
 cp /home/ec2-user/expense-shell-3/backend.service /etc/systemd/system/backend.service
