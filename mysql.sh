@@ -43,8 +43,4 @@ then
     VALIDATE_FUNCTION $? "Setting root password"
 else
     echo "Mysql root pw set up already done...SKIPPING"
-fi
-    
-    
-    
-    
+fi 
