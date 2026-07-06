@@ -36,11 +36,11 @@ VALIDATE_FUNCTION $? "Enabling nodejs"
 dnf install nodejs -y &>>$LOG_FILE_NAME
 VALIDATE_FUNCTION $? "Installing nodejs"
 
-# useradd expense
-# VALIDATE_FUNCTION $? "Creating expense user"
+useradd expense
+VALIDATE_FUNCTION $? "Creating expense user"
 
-# mkdir /app
-# VALIDATE_FUNCTION $? "Creating app directory"
+mkdir /app
+VALIDATE_FUNCTION $? "Creating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_NAME
 VALIDATE_FUNCTION $? "downloading application code"
@@ -55,7 +55,7 @@ VALIDATE_FUNCTION $? "Installing dependencies"
 
 cp /home/ec2-user/expense-shell-3/backend.service /etc/systemd/system/backend.service
 
-dnf install mysql -y
+dnf install mysql -y &>>LOG_FILE_NAME
 VALIDATE_FUNCTION $? "Installing mysql client"
 
 mysql -h mysql.pavancloud5.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
