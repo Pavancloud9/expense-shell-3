@@ -40,13 +40,7 @@ mysql -h mysql.pavancloud5.online -u root -pExpenseApp@1 -e 'show databases;' &>
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ExpenseApp@1
-    if [ $? -ne 0 ]
-    then
-        echo "Setting root password...FAILURE"
-        exit 1
-    else
-        echo "Setting root password...SUCCESS"
-    fi
+    VALIDATE_FUNCTION $? "Setting root password"
 else
     echo "Mysql root pw set up already done...SKIPPING"
 fi
