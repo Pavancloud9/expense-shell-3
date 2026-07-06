@@ -45,9 +45,6 @@ else
     echo "Expense user already exists...SKIPPING"
 fi
 
-useradd expense
-VALIDATE_FUNCTION $? "Creating expense user"
-
 mkdir /app
 VALIDATE_FUNCTION $? "Creating app directory"
 
